@@ -1,8 +1,13 @@
 {
   "name": "paulix",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "A game for Felix and Paula",
   "main": "gulpfile.js",
+  "author": "Thomas Werner",
+  "license": "Creative Commons: By Attribution 3.0 License",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
@@ -23,10 +28,5 @@
     "gulp": "^3.9.1",
     "gulp-util": "^3.0.7",
     "vinyl-source-stream": "^1.1.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Thomas Werner",
-  "license": "Creative Commons: By Attribution 3.0 License"
+  }
 }
