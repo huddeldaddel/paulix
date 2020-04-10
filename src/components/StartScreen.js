@@ -1,65 +1,65 @@
-var GameActions = require('../actions/GameActions'),
-    GameStore = require('../stores/GameStore'),
-    LevelActions = require('../actions/LevelActions'),
-    LevelSelection = require('./LevelSelection'),
-    React = require('react');
+import React from 'react';
+import GameActions from '../actions/GameActions';
+import GameStore from '../stores/GameStore';
+import LevelActions from '../actions/LevelActions';
+import LevelSelection from './LevelSelection';
 
-var StartScreen = React.createClass({
+class StartScreen extends React.Component {
 
-    componentDidMount: function() {
-        this.props.sound.play('menu');
-    },
+  componentDidMount() {
+    this.props.sound.play('menu');
+  }
 
-    componentWillUnmount: function() {
-        this.props.sound.stop('menu');
-    },
+  componentWillUnmount() {
+    this.props.sound.stop('menu');
+  }
 
-    render: function() {
-        return (
-            <div id="game-menu">
-                <div className="menu-title">
-                    <span className="c1">P</span>
-                    <span className="c2">a</span>
-                    <span className="c3">u</span>
-                    <span className="c4">l</span>
-                    <span className="c5">i</span>
-                    <span className="c6">x</span>
-                </div>
-                
-                <div className="player-selection">
-                    <div className="player-option-l">                    
-                        <button className="menu-item" onClick={this.handleMenuStartM}>
-                            <img src="tiles/player/male/Idle_1.png" />
-                            <p>Spiele als Felix</p>
-                        </button>
-                    </div>                        
-                    <div className="player-option-r">                    
-                        <button className="menu-item" onClick={this.handleMenuStartF}>
-                            <img src="tiles/player/female/Idle_1.png" />
-                            <p>Spiele als Paula</p>
-                        </button>
-                    </div>                    
-                </div>
-                
-                <LevelSelection />
-                
-                <p>Highscore: {GameStore.highscore}</p>
-            </div>
-        );
-    },
-    
-    handleMenuStartF: function() {
-        GameActions.setCharacter('female');
-        GameActions.startGame();
-        LevelActions.loadLevel(0);        
-    },
-    
-    handleMenuStartM: function() {
-        GameActions.setCharacter('male');
-        GameActions.startGame();
-        LevelActions.loadLevel(0);        
-    }
-    
-});
+  render() {
+    return (
+      <div id="game-menu">
+        <div className="menu-title">
+          <span className="c1">P</span>
+          <span className="c2">a</span>
+          <span className="c3">u</span>
+          <span className="c4">l</span>
+          <span className="c5">i</span>
+          <span className="c6">x</span>
+        </div>
+        
+        <div className="player-selection">
+          <div className="player-option-l">
+            <button className="menu-item" onClick={this.handleMenuStartM}>
+              <img src="tiles/player/male/Idle_1.png" alt="male avatar"/>
+              <p>Spiele als Felix</p>
+            </button>
+          </div>
+          <div className="player-option-r">
+            <button className="menu-item" onClick={this.handleMenuStartF}>
+              <img src="tiles/player/female/Idle_1.png" alt="female avatar" />
+              <p>Spiele als Paula</p>
+            </button>
+          </div>
+        </div>
 
-module.exports = StartScreen;
+        <LevelSelection />
+
+        <p>Highscore: {GameStore.highscore}</p>
+      </div>
+    );
+  }
+
+  handleMenuStartF = () => {
+    GameActions.setCharacter('female');
+    GameActions.startGame();
+    LevelActions.loadLevel(0);
+  }
+
+  handleMenuStartM = () => {
+    GameActions.setCharacter('male');
+    GameActions.startGame();
+    LevelActions.loadLevel(0);
+  }
+
+}
+
+export default StartScreen;

@@ -2,8 +2,8 @@
 // running just start typing these codes and benefit. Adding new cheats is easy, too. Just add a new object to the codes
 // property and e.g. call any action you like.
 
-var GameActions = require('../actions/GameActions'),
-    LevelActions = require('../actions/LevelActions');
+import GameActions from '../actions/GameActions';
+import LevelActions from '../actions/LevelActions';
 
 var Cheats = {
 
@@ -48,4 +48,4 @@ var Cheats = {
     }
 };
 
-module.exports = Cheats;
+export default Cheats;

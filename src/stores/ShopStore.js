@@ -1,18 +1,18 @@
-var GameActions = require('../actions/GameActions'),
-    GameStore = require('./GameStore'),
-    LevelActions = require('../actions/LevelActions'),
-    LevelStore = require('./LevelStore'),
-    Reflux = require('reflux'),
-    ShopActions = require('../actions/ShopActions');
+import GameActions from '../actions/GameActions';
+import GameStore from './GameStore';
+import LevelActions from '../actions/LevelActions';
+import LevelStore from './LevelStore';
+import Reflux from 'reflux';
+import ShopActions from '../actions/ShopActions';
 
-var prices = {
+const prices = {
     armor: 50,
     extraLife: 25,
     extraLifeX3: 70,
     levelSwitch: 150
 };
 
-var ShopStore = Reflux.createStore({
+const ShopStore = Reflux.createStore({
     listenables: ShopActions,
 
     buyArmor: function() {
@@ -32,7 +32,7 @@ var ShopStore = Reflux.createStore({
 
     buyLevelSwitch: function() {
         GameActions.addCoins(prices.levelSwitch * -1);
-        LevelActios.enableLevelSelection();
+        LevelActions.enableLevelSelection();
     },
 
     getPrices: function() {
@@ -51,4 +51,4 @@ var ShopStore = Reflux.createStore({
 
 });
 
-module.exports = ShopStore;
+export default ShopStore;

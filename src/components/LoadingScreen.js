@@ -1,30 +1,30 @@
-var GameStore = require('../stores/GameStore'),
-    Levels = require('../game/Levels'),
-    LevelStore = require('../stores/LevelStore'),
-    React = require('react');
+import React from 'react';
+import GameStore from '../stores/GameStore';
+import Levels from '../game/Levels';
+import LevelStore from '../stores/LevelStore';
 
-var LoadingScreen = React.createClass({
+class LoadingScreen extends React.Component {
     
-    componentDidMount: function() {
-        this.props.sound.play('intro');
-    },
-     
-    componentWillUnmount: function() {
-        this.props.sound.stop('intro');
-    },
-    
-    render: function() {      
-        var description = Levels[LevelStore.level].description.replace(/\<name\>/gi, GameStore.texts.name);
-        return (
-            <div className="loading-screen"> 
-                <h2>Level: {LevelStore.level +1}</h2>
-                <div className="level-description">
-                    <p>{description}</p>
-                </div>
-            </div>
-        );
-    }
-    
-});
+  componentDidMount() {
+    this.props.sound.play('intro');
+  }
 
-module.exports = LoadingScreen;
+  componentWillUnmount() {
+    this.props.sound.stop('intro');
+  }
+
+  render() {
+    var description = Levels[LevelStore.level].description.replace(/<name>/gi, GameStore.texts.name);
+    return (
+      <div className="loading-screen"> 
+        <h2>Level: {LevelStore.level +1}</h2>
+        <div className="level-description">
+          <p>{description}</p>
+        </div>
+      </div>
+    );
+  }
+
+}
+
+export default LoadingScreen;

@@ -3,7 +3,8 @@
 // factor. Keep that in mind, when you're placing them in the levels.
 
 // A background tile (for various types of ground and sky)
-var Ground = function(theme, fileName, turningPoint) {
+class Ground {
+  constructor(theme, fileName, turningPoint) {
     this.type = 'Ground';
     this.collide = true;
     this.solid = true;
@@ -15,10 +16,12 @@ var Ground = function(theme, fileName, turningPoint) {
     this.spriteHeight = 128;
     this.scaleX = 1;
     this.scaleY = 1;
-};
+  }
+}
 
 // A background tile for water
-var Water = function(theme, fileName) {
+class Water {
+  constructor(theme, fileName) {
     this.collide = true;
     this.solid = false;
     this.deadly = false;
@@ -29,10 +32,12 @@ var Water = function(theme, fileName) {
     this.spriteHeight = 128;
     this.scaleX = 1;
     this.scaleY = 1;
-};
+  }
+}
 
 // A background object (like trees, bushes, ...)
-var BackgroundObject = function(fileName, w, h, sx, sy) {
+class BackgroundObject {
+  constructor(fileName, w, h, sx, sy) {
     this.collide = false;
     this.solid = false;
     this.deadly = false;
@@ -43,10 +48,12 @@ var BackgroundObject = function(fileName, w, h, sx, sy) {
     this.spriteHeight = h;
     this.scaleX = sx;
     this.scaleY = sy;
-};
+  }
+}
 
 // Obstacles
-var Obstacle = function(fileName, w, h, solid) {
+class Obstacle {
+  constructor(fileName, w, h, solid) {
     this.collide = true;
     this.solid = solid;
     this.deadly = false;
@@ -57,10 +64,12 @@ var Obstacle = function(fileName, w, h, solid) {
     this.spriteHeight = h;
     this.scaleX = 1;
     this.scaleY = 1;
-};
+  }
+}
 
 // Some kind of special tile (respawn point, exit, ...)
-var Special = function(type, fileName, collide, solid, deadly, x) {
+class Special {
+  constructor(type, fileName, collide, solid, deadly, x) {
     this.collide = collide;
     this.solid = solid;
     this.deadly = deadly;
@@ -71,16 +80,20 @@ var Special = function(type, fileName, collide, solid, deadly, x) {
     this.spriteHeight = x;
     this.scaleX = 1;
     this.scaleY = 1;
-};
+  }
+}
 
 // Monsters are another special kind of Block. These blocks will be replaced after loading -> no sprite required here.
-var Monster = function(subtype) {
+class Monster {
+  constructor(subtype) {
     this.type = 'Monster';
     this.subtype = subtype;
-};
+  }
+}
 
 // A container for the various types of level blocks.
-var Blocks = function(theme) {
+class Blocks {
+  constructor(theme) {
     this['1'] = new Ground(theme, '1.png', true);
     this['2'] = new Ground(theme, '2.png', false);
     this['3'] = new Ground(theme, '3.png', true);
@@ -144,6 +157,7 @@ var Blocks = function(theme) {
     this['-'] = new Monster('spiky');
     this['/'] = new Monster('wasp');
     this['='] = new Monster('zombie');
-};
+  }
+}
 
-module.exports = Blocks;
+export default Blocks;

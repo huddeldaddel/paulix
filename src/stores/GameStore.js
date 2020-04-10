@@ -1,16 +1,16 @@
-var GameActions = require('../actions/GameActions'),
-    Reflux = require('reflux');
+import GameActions from '../actions/GameActions';
+import Reflux from 'reflux';
 
-var texts = {
-    'female': {
-        name: 'Paula'
-    },
-    'male': {
-        name: 'Felix'
-    }
+const texts = {
+  'female': {
+      name: 'Paula'
+  },
+  'male': {
+      name: 'Felix'
+  }
 };
 
-var GameStore = Reflux.createStore({
+const GameStore = Reflux.createStore({
     listenables: GameActions,
 
     // Initial setup
@@ -32,7 +32,7 @@ var GameStore = Reflux.createStore({
         this.hasArmor = armor;
     },
 
-    setCharacter: function(character) {
+    setCharacter: function(character) {        
         this.character = character;
         localStorage.setItem('character', this.character);
         this.texts = texts[character];
@@ -60,4 +60,4 @@ var GameStore = Reflux.createStore({
 
 });
 
-module.exports = GameStore;
+export default GameStore;
