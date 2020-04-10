@@ -45,6 +45,10 @@ body {
     width: 310px;
 }
 
+button:hover {
+  background-color: white;
+}
+
 .menu-title {
     margin-top: 35px;
     margin-bottom: 25px;

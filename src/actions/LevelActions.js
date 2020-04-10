@@ -1,6 +1,6 @@
-var Reflux = require('reflux');
+import Reflux from 'reflux';
 
-var LevelActions = Reflux.createActions([
+const LevelActions = Reflux.createActions([
     "creditsShown",
     "enableLevelSelection",
     "levelWon",
@@ -8,4 +8,4 @@ var LevelActions = Reflux.createActions([
     "loadGameOver"    
 ]);
 
-module.exports = LevelActions;
+export default LevelActions;

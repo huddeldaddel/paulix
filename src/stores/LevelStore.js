@@ -1,8 +1,8 @@
-var LevelActions = require('../actions/LevelActions'),
-    Levels = require('../game/Levels'),
-    Reflux = require('reflux');
+import LevelActions from '../actions/LevelActions';
+import Levels from '../game/Levels';
+import Reflux from 'reflux';
 
-var LevelStore = Reflux.createStore({
+const LevelStore = Reflux.createStore({
     listenables: LevelActions,
 
     // Initial setup
@@ -53,4 +53,4 @@ var LevelStore = Reflux.createStore({
 
 });
 
-module.exports = LevelStore;
+export default LevelStore;

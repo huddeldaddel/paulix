@@ -1,23 +1,23 @@
-var React = require('react');
+import React from 'react';
 
-var GameOverScreen = React.createClass({
+class GameOverScreen extends React.Component {
     
-    componentDidMount: function() {
-        this.props.sound.play('game_over');
-    },
-    
-    componentWillUnmount: function() {
-        this.props.sound.stop('game_over');
-    },
-    
-    render: function() {
-        return (
-            <div>
-                <p>Game Over</p>
-            </div>
-        );
-    }
-    
-});
+  componentDidMount() {
+    this.props.sound.play('game_over');
+  }
+  
+  componentWillUnmount() {
+    this.props.sound.stop('game_over');
+  }
+  
+  render() {
+    return (
+      <div>
+        <p>Game Over</p>
+      </div>
+    );
+  }
 
-module.exports = GameOverScreen;
+}
+
+export default GameOverScreen;

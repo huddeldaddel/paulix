@@ -1,6 +1,6 @@
-var Reflux = require('reflux');
+import Reflux from 'reflux';
 
-var ShopActions = Reflux.createActions([
+const ShopActions = Reflux.createActions([
     "buyArmor",
     "buyExtraLife",
     "buyExtraLifeX3",
@@ -13,4 +13,4 @@ ShopActions.buyExtraLife.sync = true;
 ShopActions.buyExtraLifeX3.sync = true;
 ShopActions.buyLevelSwitch.sync = true;
 
-module.exports = ShopActions;
+export default ShopActions;

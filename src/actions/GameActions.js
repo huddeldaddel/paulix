@@ -1,6 +1,6 @@
-var Reflux = require('reflux');
+import Reflux from 'reflux';
 
-var GameActions = Reflux.createActions([
+const GameActions = Reflux.createActions([
     "addCoins",
     "addPoints",
     "setArmor",
@@ -18,4 +18,4 @@ GameActions.updateCoins.sync = true;
 GameActions.updateLives.sync = true;
 GameActions.updateScore.sync = true;
 
-module.exports = GameActions;
+export default GameActions;
